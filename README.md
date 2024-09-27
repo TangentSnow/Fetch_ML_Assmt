@@ -25,7 +25,7 @@ cd Fetch_ML_Assmt
 
 ## Two ways to run:
 **1) Using Docker <br>
-2) Using python script**
+2) Using python file**
 
 ### Run using Dockerfile:
 This method requires Docker<br>
