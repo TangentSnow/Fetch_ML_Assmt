@@ -63,7 +63,7 @@ Download the required python packages
 ```
 pip install -r requirements.txt
 ```
-Run the python script
+Run the python file
 ```
 python predictor.py
 ```
