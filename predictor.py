@@ -19,7 +19,7 @@ class NN(nn.Module):
 
 # Initalize model and assign pre-trained model weights    
 model = NN()
-model.load_state_dict(torch.load('NN_test.pth', weights_only=False))
+model.load_state_dict(torch.load('Model_weights/NN_test.pth', weights_only=False))
 
 '''
     The function predict() is incharge of:
@@ -33,9 +33,6 @@ model.load_state_dict(torch.load('NN_test.pth', weights_only=False))
 def predict(user_input):
     user_input = user_input.lower()
     month_dict = {
-        'testo': 10,
-        'testn': 11,
-        'testd':12,
         'january':13,
         'february': 14,
         'march': 15,
@@ -59,7 +56,7 @@ def predict(user_input):
         month_value = month_dict[user_input]
         model_input = [(month_value - Month_min) / (Month_max - Month_min)]
     else:
-        print('Please check the month entered')
+        return 'Please check the month entered'
 
     prediction = model.forward(torch.FloatTensor(model_input)).item()
     prediction_denorm = prediction * (Receipt_max - Receipt_min) + Receipt_min # Denormalize the normalized prediction
