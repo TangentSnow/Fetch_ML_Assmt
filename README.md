@@ -30,7 +30,7 @@ cd Fetch_ML_Assmt
 ### Run using Dockerfile:
 This method requires Docker<br>
 Download Docker at [https://www.docker.com/products/docker-desktop/]<br>
-After installation, open docker to start the docker engine<br>
+After installation, open docker to start the docker engine and leave it running in the background<br>
 
 Build Docker Image from Dockerfile<br>
 ```
