@@ -49,7 +49,7 @@ localhost:3000
 
 Get a prediction
 ```
-Enter a month (ex: January, November) into the text box and click predict
+Enter a month (ex: January, November...(no spaces) into the text box and click predict
 ```
 
 Stop container 
