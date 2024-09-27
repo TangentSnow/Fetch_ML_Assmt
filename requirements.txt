@@ -1,0 +1,6 @@
+torch==2.4.0
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.2
+matplotlib-inline==0.1.7 
+flask==3.0.3

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-0">
+        <title>Fetch_ML_Assmt</title>
+        <Style>
+            body {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: whitesmoke;
+            }
+
+            .container {
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            input {
+                padding: 10px;
+                width: 50%;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+            button {
+                width: 40%;
+                height: 15%;
+                border-radius: 10px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: blue;
+            }
+
+            form {
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-content: space-around;
+            }
+        </Style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h1>Enter a month in 2022 to get a prediction</h1>
+            <form action="/get_post" method="post">
+                <input type="text" name="user_input" placeholder="Month">
+                <button>Predict</button>
+            </form>
+            {% if output %}
+            <p>{{ output }}</p>
+            {% endif %}
+        </div>
+    </body>
+</html>
