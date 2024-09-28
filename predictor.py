@@ -27,7 +27,7 @@ model.load_state_dict(torch.load('Model_weights/NN_test.pth', weights_only=False
         - mapping it to a numerical value (month)
         - normalizing the numerical value
         - getting a prediction
-        - "denormalizing" the output so that it is not between 0 and 1
+        - "denormalizing" the output so that it is in the same scale as the dataset
         - displaying the prediction to the user
 '''
 def predict(user_input):
@@ -46,7 +46,7 @@ def predict(user_input):
         'november': 23,
         'december': 24
     }
-    # Min Max values for denormilization   
+    # Min Max values for denormilization (reverse Min-Max scaling)  
     Month_min = 1
     Month_max = 24  
     Receipt_min = 220033460
@@ -54,12 +54,12 @@ def predict(user_input):
     
     if user_input in month_dict:
         month_value = month_dict[user_input]
-        model_input = [(month_value - Month_min) / (Month_max - Month_min)]
+        model_input = [(month_value - Month_min) / (Month_max - Month_min)] # Normalizing user_input value (Min-Max Scaling)
     else:
         return 'Please check the month entered'
 
     prediction = model.forward(torch.FloatTensor(model_input)).item()
-    prediction_denorm = prediction * (Receipt_max - Receipt_min) + Receipt_min # Denormalize the normalized prediction
+    prediction_denorm = prediction * (Receipt_max - Receipt_min) + Receipt_min # Denormalize the prediction (Reverse Min-Max Scaling)
     prediction_formatted = "{:,}".format(round(prediction_denorm))
     out_text = f'Predicted ' + str(prediction_formatted) + ' receipts for ' + user_input
     return out_text
@@ -69,7 +69,7 @@ def predict(user_input):
 def load():
     return render_template('web_app.html')
 
-# this function extracts the user input, run an infrence using predict() and sends back the predicted value
+# this function extracts the user input, run an infrence using predict() and sends back the predicted value to be displayed on the web page
 @app.route('/get_post', methods=['POST'])
 def get_post():
     user_input = request.form['user_input']
