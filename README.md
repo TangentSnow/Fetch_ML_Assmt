@@ -77,7 +77,7 @@ You can copy either one of the http links and paste it into a browser to access 
 
 Get a prediction
 ```
-Enter a month (ex: January, November) into the text box and click predict
+Enter a month (ex: January, November...(no spaces)) into the text box and click predict
 ```
 Exit program
 ```
