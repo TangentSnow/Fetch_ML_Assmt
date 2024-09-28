@@ -58,7 +58,7 @@ docker container stop <unique code generated>
 ```
 
 
-### Run using python script
+### Run using python file
 Download the required python packages
 ```
 pip install -r requirements.txt
